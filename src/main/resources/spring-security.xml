@@ -77,30 +77,11 @@
 	</authentication-manager>
 
 
-	<bean id="kylinServiceAccountAuthProvider"
-		class="org.apache.kylin.rest.security.KylinAuthenticationProvider">
-		<property name="ldapUserService">
-			<bean id="ldapUserService"
-				class="org.springframework.security.ldap.userdetails.LdapUserDetailsService">
-				<constructor-arg>
-					<bean id="userSearch"
-						class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-						<constructor-arg index="0" value="${sample.ldap.base}" />
-						<constructor-arg index="1" value="cn={0}" />
-						<constructor-arg index="2" ref="ldapSource" />
-					</bean>
-				</constructor-arg>
-				<constructor-arg>
-					<bean class="ldap.db2ldap.authentication.AuthoritiesPopulator">
-						<constructor-arg index="0" ref="ldapSource" />
-						<constructor-arg index="1"
-							value="ou=Group,dc=openldap,dc=jw,dc=cn" />
-						<constructor-arg index="2" value="${ldap.acl.adminRole}" />
-						<constructor-arg index="3" value="${ldap.acl.defaultRole}" />
-					</bean>
-				</constructor-arg>
-			</bean>
-		</property>
+	<bean id="ldapSource"
+		class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<constructor-arg name="providerUrl" value="${sample.ldap.url}" />
+		<property name="userDn" value="${sample.ldap.userDn}" />
+		<property name="password" value="${sample.ldap.password}" />
 	</bean>
-
+		
 </beans>
