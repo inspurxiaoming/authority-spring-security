@@ -1,4 +1,4 @@
-package com.github.virgo47.respsec.mvc;
+package com.github.virgo47.respsec.mvc1;
 
 import javax.annotation.PostConstruct;
 

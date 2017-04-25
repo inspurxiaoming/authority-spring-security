@@ -16,7 +16,7 @@
  * limitations under the License.
 */
 
-package org.apache.kylin.rest.security;
+package cn.jw.authority.rest.security;
 
 import java.util.HashSet;
 import java.util.Set;
