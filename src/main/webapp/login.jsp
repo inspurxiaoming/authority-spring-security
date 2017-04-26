@@ -2,14 +2,12 @@
 
 <%
 	String contextPath = request.getContextPath();
-String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+ contextPath + "/";
-	System.out.println("---------"+basePath);
 %>
 <html>
 <title>RESTful Spring Security</title>
 <meta charset="UTF-8">
 <body>
-	<form action="${basePath}/login" method="post">
+	<form action="<%=contextPath %>/index.jsp" method="post">
 		<table>
 			<tr>
 				<td>用户名：</td>

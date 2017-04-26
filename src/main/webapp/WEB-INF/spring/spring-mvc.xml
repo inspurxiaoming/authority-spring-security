@@ -13,7 +13,7 @@
         http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<context:component-scan base-package="com.github.virgo47.respsec.mvc"/>
+	<context:component-scan base-package="cn.jw.authority.rest.mvc"/>
 	<mvc:annotation-driven/>
 
 	<!-- Just to host static resources, like: http://localhost:8080/respsec/res/random.jpg -->

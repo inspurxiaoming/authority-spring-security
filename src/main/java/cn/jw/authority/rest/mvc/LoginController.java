@@ -1,12 +1,13 @@
-package com.github.virgo47.respsec.mvc;
+package cn.jw.authority.rest.mvc;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.security.RolesAllowed;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -38,8 +39,8 @@ public class LoginController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/login", produces = "text/plain")
-	public String login() {
+	@RequestMapping(value = "/check", produces = "text/plain")
+	public String login(String username, String password) {
 		UsernamePasswordAuthenticationToken authentication = 
 				new UsernamePasswordAuthenticationToken("ZH201506006", "c9c4c39a6ce3413ed32214ba89c1e777");
 		Authentication auth =  userAuthProvider.authenticate(authentication);
@@ -57,7 +58,7 @@ public class LoginController {
 	
 	
 	@ResponseBody
-	@RolesAllowed("AUTHORITY_SYSTEM_ADMIN")
+	@Secured("ROLE_AUTHORITY_SYSTEM_ADMIN")
 	@RequestMapping("/admin")
 	public String admin() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

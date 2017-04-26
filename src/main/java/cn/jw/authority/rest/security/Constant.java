@@ -16,27 +16,22 @@
  * limitations under the License.
 */
 
-package org.apache.kylin.rest.constant;
+package cn.jw.authority.rest.security;
 
-/**
- * @author xduo
- * 
- */
 public class Constant {
+	
+    public final static String ROLE_AUTHORITY_SYSTEM_ADMIN = "ROLE_AUTHORITY_SYSTEM_ADMIN";  //权限申请系统管理员角色
+    public final static String ROLE_AUTHORITY_SYSTEM_USER = "ROLE_AUTHORITY_SYSTEM_USER";   //权限申请系统普通角色
+    
+    public final static String ACCESS_HAS_ROLE_AUTHORITY_SYSTEM_ADMIN = "hasRole('ROLE_AUTHORITY_SYSTEM_ADMIN')";
+    public final static String ACCESS_HAS_ROLE_AUTHORITY_SYSTEM_USER = "hasRole('ROLE_AUTHORITY_SYSTEM_USER')";
 
     public final static String FakeSchemaName = "defaultSchema";
     public final static String FakeCatalogName = "defaultCatalog";
 
     public final static String IDENTITY_USER = "user";
     public final static String IDENTITY_ROLE = "role";
-
-    public final static String ROLE_ADMIN = "ROLE_ADMIN";
-    public final static String ROLE_MODELER = "ROLE_MODELER";
-    public final static String ROLE_ANALYST = "ROLE_ANALYST";
-
-    public final static String ACCESS_HAS_ROLE_ADMIN = "hasRole('ROLE_ADMIN')";
-    public final static String ACCESS_HAS_ROLE_MODELER = "hasRole('ROLE_MODELER')";
-
+    
     public final static String ACCESS_POST_FILTER_READ = "hasRole('ROLE_ADMIN') or hasPermission(filterObject, 'READ') or hasPermission(filterObject, 'MANAGEMENT') " + "or hasPermission(filterObject, 'OPERATION') or hasPermission(filterObject, 'ADMINISTRATION')";
 
     public final static String SERVER_MODE_QUERY = "query";
