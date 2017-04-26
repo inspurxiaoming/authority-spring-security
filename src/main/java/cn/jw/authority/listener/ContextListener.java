@@ -1,4 +1,4 @@
-package com.github.virgo47.respsec;
+package cn.jw.authority.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
